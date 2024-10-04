@@ -4,7 +4,7 @@ import redis
 
 class RedisAdapter:
     def __init__(self):
-        # Получаем настройки из settings.py
+
         self.host = getattr(settings, 'REDIS_HOST', 'localhost')
         self.port = getattr(settings, 'REDIS_PORT', 6379)
         self.db = getattr(settings, 'REDIS_DB', 0)
