@@ -20,7 +20,7 @@ class RateLimitMiddleware(MiddlewareMixin):
         ip = self.get_client_ip(request)
         self.redis_adapter.set_ip_mask(ip)
 
-        if self.redis_adapter.count_keys(ip) > 100:
+        if self.redis_adapter.count_keys(ip) > self.redis_adapter.max_requests:
             return HttpResponseForbidden(
                 "You are blocked due to too many requests."
             )
