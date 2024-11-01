@@ -15,7 +15,7 @@ class RedisAdapter:
         self.port = port
         self.db = db
         self.timeout = timeout
-        self.max_requests = max_requests
+        self.max_requests = int(max_requests)
         self.client = redis.StrictRedis(host=self.host,
                                         port=self.port,
                                         db=self.db)
@@ -36,7 +36,8 @@ class RedisAdapter:
 
     def get_keys(self, ip):
         """Returns all keys that match the pattern for the given IP."""
-        return self.client.keys(f"{ip}:*")
+        keys = self.client.keys(f"{ip}:*")
+        return keys
 
     def count_keys(self, ip):
         """Counts the number of keys for a given IP."""
