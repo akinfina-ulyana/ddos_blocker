@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "ddos_blocker"
-version = "0.0.9"
+version = "0.0.12"
 authors = [
     { name="Ulyana Akinfina", email="ulyana.akinfina22@gmail.com"},
     { name="Alexander Chaika", email="manti.by@gmail.com"},
